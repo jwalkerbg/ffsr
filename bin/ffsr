@@ -1,0 +1,4 @@
+require "Ffsr"
+
+ct = Ffsr::Mainclass.new
+ct.main
