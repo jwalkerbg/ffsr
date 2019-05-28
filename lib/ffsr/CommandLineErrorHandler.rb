@@ -9,7 +9,7 @@ module Ffsr
       super()
     end
 
-    def PrintMessage
+    def printMessage
       mess = @message
       if @subject.length > 0
         mess += ': ' + @subject
