@@ -2,24 +2,15 @@ module Ffsr
 # command line options - This variable is used to transfer information between option processing
 # and posprocessing.
 # hashes
-#   :flags - various
 #   :opterrors - counter of errors in parsing and postprocessing
-#   :kind - kind of input file: 's' for SMD, 'w' for warehouse obligatory one and only one
-#   :file - true in input_file -> output_file use case
-#   :dir  - true in input_file -> output_path or input_path -> output_path use case
-#   :input_file - input file
-#   :input_path - input path
-#   :output_file - output file, decoded from -o option or from the input file
-#   :output_path - output path, decoded from -t option or from the input path
 
   class OptParse
     def self.parse(argv)
-      options = {:opterrors => 0, :flags => 0}
-      flags = 0
+      options = {:opterrors => 0}
       opterrors = 0
 
       opt_parser = OptionParser.new do |opt|
-        opt.banner = 'Usage: ffsr FFSR_batch_files'
+        opt.banner = 'Usage: ffsr FFSR_batch_files [options]'
 
         opt.on('--dry-run', 'Does everything as usual except creating output files') do
           options[:dryrun] = true
@@ -41,7 +32,6 @@ module Ffsr
         opterrors += 1
       end
 
-      options[:flags] = flags           # additional information about what was accepted
       options[:opterrors] = opterrors
       options
     end # parse
