@@ -6,8 +6,8 @@ require "ffsr/version"
 Gem::Specification.new do |spec|
   spec.name          = "ffsr"
   spec.version       = Ffsr::VERSION
-  spec.authors       = ["jwalkerbg"]
-  spec.email         = ["i_cenov@botevgrad.com"]
+  spec.authors       = ["imc"]
+  spec.email         = ["imc@okto7.com"]
 
   spec.summary       = %q{Simple starter of FFS batch files.}
   spec.description   = %q{This is simple starter of FFS batch files.}
