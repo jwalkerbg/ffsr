@@ -33,7 +33,17 @@ module Ffsr
 
 # check existence of the program
       begin
-        raise CommandLineErrorHandler.new('The program executable does not exist') if File.file?(program) == false
+        raise CommandLineErrorHandler.new("The program executable \'#{program}\' does not exist") if File.file?(program) == false
+      rescue CommandLineErrorHandler => e
+        e.printMessage
+        options[:opterrors] += 1
+      end
+
+      ConditionalExit(options)
+
+# check if the file is executable
+      begin
+        raise CommandLineErrorHandler.new("\'#{program}\' is not an executable file") if File.executable?(program) == false
       rescue CommandLineErrorHandler => e
         e.printMessage
         options[:opterrors] += 1
