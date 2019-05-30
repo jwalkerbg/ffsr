@@ -54,8 +54,13 @@ module Ffsr
 # work here
       files.each do |f|
         puts program + ' ' + f if options[:verbose] != nil && options[:verbose] == true
-        system(program,f) if options[:dryrun] == nil || options[:dryrun] != true
+        r = true
+        r = system(program,f) if options[:dryrun] == nil || options[:dryrun] != true
+        puts "Synchronization of #{f} did not proceed" if r == nil
+        puts "Synchronization of #{f} was not successful" if r == false
       end
+
+      NORMAL_EXIT
     end # main
 
 # ConditionalExit
