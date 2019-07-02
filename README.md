@@ -30,4 +30,4 @@ FFSR command line is
 Examples
 
 	ffsr "c:\program files\FreeFileSync\FreeFileSync.exe" archive.ffs_batch
-	ffsr "c:\program files\FreeFileSync\FreeFileSync.exe" g:\FFS\*.ffs_bacth
+	ffsr "c:\program files\FreeFileSync\FreeFileSync.exe" g:\FFS\*.ffs_batch
